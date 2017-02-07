@@ -1,0 +1,6 @@
+Currently this service demonstrates a simple scenratio, i.e. serving static file content as json.
+
+- common/swaggerize component -> should be organized in separate NPM, also removing specific/hard coded data
+- common/vip-access-validator component -> should be organized in separate NPM
+- data-provider should be using DB, and more static files, also filtering
+- index.js should be maybe separated into very basic funcionality and API.js
