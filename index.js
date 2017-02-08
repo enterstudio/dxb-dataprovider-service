@@ -8,8 +8,9 @@ const config = require('config'),
 let dataProvider = new DataProvider(console.log);
 
 // start server listening
-app.listen(config.port, function () {
-    console.log('Microservice started listening on port ' + config.port);
+let port = process.env.PORT || config.port;
+app.listen(port, function () {
+    console.log('Microservice started listening on port ' + port);
 });
 
 // attach VIP access validator
