@@ -1,0 +1,6 @@
+{
+    "service_api_key": "123456789",
+    "shared_secret": "shared_secret",
+    "api_path": "/api/products",
+    "port":80
+}
