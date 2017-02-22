@@ -21,7 +21,7 @@ function setup(app) {
     var swaggerSpec = swaggerJSDoc(swaggerOptions);
 
     // Serve generated swagger specification under Swagger UI path
-    app.get('/api-docs.json', function(req, res) {
+    app.get('/api/docs', function(req, res) {
         res.setHeader('Content-Type', 'application/json');
         res.send(swaggerSpec);
     });
