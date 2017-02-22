@@ -20,23 +20,12 @@ function setup(app) {
     // Initialize swagger-jsdoc -> returns validated swagger spec in json format
     var swaggerSpec = swaggerJSDoc(swaggerOptions);
 
-    // Serve Swagger UI with proper json definition
-//     var swaggerUI = express();
-//     app.use('/sw', swaggerUI);
-//     swaggerUI.get('/', function (req, res) {
-//         var fullUrl = req.protocol + '://' + req.get('host');
-//         var apiDocsUrl = fullUrl + '/sw/api-docs.json';
-//         res.redirect(fullUrl + '/sw/index.html?url=' + apiDocsUrl);
-//     });
-//     console.log(__dirname + "../sw");
-//     swaggerUI.use(express.static(__dirname + "/../sw")); // TODO this __dirname might not be the case, it depends on where this source is located
-
     // Serve generated swagger specification under Swagger UI path
-    app.get('/docs', function(req, res) {
+    app.get('/api-docs.json', function(req, res) {
         res.setHeader('Content-Type', 'application/json');
         res.send(swaggerSpec);
     });
-    console.log("SwaggerUI enabled for documented APIs, visit http://<server>/sw subpage after server is up and running, you must have swagger-ui HTML frontend downloaded and placed uner 'sw' folder");
+    console.log("Swagger API docs served from: <ROOT_PATH>/api-docs.json");
 }
 
 module.exports = function(app) {

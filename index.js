@@ -14,11 +14,8 @@ app.listen(port, function () {
 });
 
 // attach VIP access validator
-console.log("Attaching Visa Innovation Platform access validator to microservice, except for Swagger path");
+console.log("Attaching Visa Innovation Platform access validator to microservice");
 app.all('*', (req, res, next) => {
-    if ( req.path.startsWith("/sw") || req.path == "/sw") {
-        return next();
-    }
     accessValidator(config.shared_secret)(req, res, next);
 });
 
