@@ -32,7 +32,7 @@ function setup(app) {
 //     swaggerUI.use(express.static(__dirname + "/../sw")); // TODO this __dirname might not be the case, it depends on where this source is located
 
     // Serve generated swagger specification under Swagger UI path
-    app.get('/api/', function(req, res) {
+    app.get('/docs', function(req, res) {
         res.setHeader('Content-Type', 'application/json');
         res.send(swaggerSpec);
     });
