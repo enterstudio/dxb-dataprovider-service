@@ -21,18 +21,18 @@ function setup(app) {
     var swaggerSpec = swaggerJSDoc(swaggerOptions);
 
     // Serve Swagger UI with proper json definition
-    var swaggerUI = express();
-    app.use('/sw', swaggerUI);
-    swaggerUI.get('/', function (req, res) {
-        var fullUrl = req.protocol + '://' + req.get('host');
-        var apiDocsUrl = fullUrl + '/sw/api-docs.json';
-        res.redirect(fullUrl + '/sw/index.html?url=' + apiDocsUrl);
-    });
-    console.log(__dirname + "../sw");
-    swaggerUI.use(express.static(__dirname + "/../sw")); // TODO this __dirname might not be the case, it depends on where this source is located
+//     var swaggerUI = express();
+//     app.use('/sw', swaggerUI);
+//     swaggerUI.get('/', function (req, res) {
+//         var fullUrl = req.protocol + '://' + req.get('host');
+//         var apiDocsUrl = fullUrl + '/sw/api-docs.json';
+//         res.redirect(fullUrl + '/sw/index.html?url=' + apiDocsUrl);
+//     });
+//     console.log(__dirname + "../sw");
+//     swaggerUI.use(express.static(__dirname + "/../sw")); // TODO this __dirname might not be the case, it depends on where this source is located
 
     // Serve generated swagger specification under Swagger UI path
-    swaggerUI.get('/api-docs.json', function(req, res) {
+    app.get('/api-docs.json', function(req, res) {
         res.setHeader('Content-Type', 'application/json');
         res.send(swaggerSpec);
     });
