@@ -9,7 +9,7 @@ class DataProvider {
     constructor(onReadyCallback) {
         let that = this;
         this.DATA = [];
-        csv.parse({ filename: "./data/VisaEverywhereShop.json" }, function(err, json) {
+        csv.parse({ filename: "./data/VisaEverywhereShop.css" }, function(err, json) {
             that.DATA = json;
             onReadyCallback("DataProvider -> number of test data entries loaded: " + json.length);
         });
